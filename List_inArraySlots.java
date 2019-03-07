@@ -7,14 +7,14 @@ public class List_inArraySlots {
 
     // declare fields here
     private int[] intArray; // potentially change name later
-	private int[] storageArray;
     private int filledElements;
+
+    private static final int INITIAL_CAPACITY = 10;
     /**
       Construct an empty list with a small initial capacity.
      */
     public List_inArraySlots() {
-        intArray = new int[10];
-        filledElements = 0;
+        intArray = new int[INITIAL_CAPACITY];
     }
 
 
@@ -22,7 +22,7 @@ public class List_inArraySlots {
       @return the number of elements in this list
      */
     public int size() {
-        return intArray.length;
+        return filledElements;
     }
 
 
@@ -31,11 +31,11 @@ public class List_inArraySlots {
        in [a,b,c,] format
       */
     public String toString() {
-        String ints = "";
+        String ints = "[";
         for (int element : intArray) {
             ints += element + ",";
         }
-        return ints;
+        return ints + "]";
     }
 
 
@@ -45,10 +45,10 @@ public class List_inArraySlots {
       @return true, in keeping with conventions yet to be discussed
      */
      public boolean add( int value) {
-         intArray[filledElements] = value;
-         filledElements++;
 		 if (filledElements == intArray.length - 1)
 				expand();
+         intArray[filledElements] = value;
+         filledElements++;
          return true;
      }
 
@@ -58,18 +58,11 @@ public class List_inArraySlots {
       preserving existing data
      */
      private void expand() {
-		 storageArray = new int[intArray.length];
-		 for (int i = 0; i < intArray.length; i++)
-			 storageArray[i] = intArray [i];
-		 intArray = new int[this.intArray.length * 2];
-		 for (int i = 0; i < storageArray.length; i++)
-			 intArray[i] = storageArray[i];
-         System.out.println( "expand... (for debugging)");
-           // /* S.O.P. rules for debugging:
-              // Working methods should be silent. But during
-              // development, the programmer must verify that
-              // this method is called when that is appropriate.
-              // So test using the println(), then comment it out.
-              // */
+         int[] expandedArray = new int[intArray.length * 2];
+         for (int index = 0; index < intArray.length; index++) {
+             expandedArray[index] = intArray[index];
+             //System.out.println(intArray[index]);
+         }
+         intArray = expandedArray;
      }
 }
