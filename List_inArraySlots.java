@@ -7,6 +7,7 @@ public class List_inArraySlots {
 
     // declare fields here
     private int[] intArray; // potentially change name later
+	private int[] storageArray;
     private int filledElements;
     /**
       Construct an empty list with a small initial capacity.
@@ -57,7 +58,12 @@ public class List_inArraySlots {
       preserving existing data
      */
      private void expand() {
+		 storageArray = new int[intArray.length];
+		 for (int i = 0; i < intArray.length; i++)
+			 storageArray[i] = intArray [i];
 		 intArray = new int[this.intArray.length * 2];
+		 for (int i = 0; i < storageArray.length; i++)
+			 intArray[i] = storageArray[i];
          System.out.println( "expand... (for debugging)");
            // /* S.O.P. rules for debugging:
               // Working methods should be silent. But during
