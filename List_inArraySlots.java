@@ -45,7 +45,7 @@ public class List_inArraySlots {
       @return true, in keeping with conventions yet to be discussed
      */
      public boolean add( int value) {
-		 if (filledElements == intArray.length - 1)
+		 if (filledElements == intArray.length)
 				expand();
          intArray[filledElements] = value;
          filledElements++;
@@ -65,4 +65,62 @@ public class List_inArraySlots {
          }
          intArray = expandedArray;
      }
+     // ---------- END OF CODE THAT WORKED IN v0 --------- //
+
+     /**
+       accessor
+       @return element @index from this list
+       @precondition: @index is within the bounds of the array.
+           (Having warned the user about this precondition,
+            you should NOT complicate your code to check
+            whether user violated the condition.)
+      */
+     public int get( int index ) {
+         return intArray[index];
+     }
+
+     /**
+       Set value at @index to @newValue
+
+       @return old value at @index
+       @precondition: @index is within the bounds of this list.
+      */
+     public int set( int index, int newValue ) {
+         int oldValue = intArray[index];
+         intArray[index] = newValue;
+         return oldValue;
+     }
+
+     /**
+       Insert @value at position @index in this list.
+
+       Shift the element currently at that position (if any)
+       and any subsequent elements to the right
+       (that is, increase the index associated with each).
+      */
+      public void add( int index, int value) {
+          add(intArray[filledElements - 1]); // slides element at end over by 1
+          for (int currentIndex = filledElements - 2; currentIndex > index - 1; currentIndex--) {
+              intArray[currentIndex + 1] = intArray[currentIndex];
+          }
+          intArray[index] = value;
+          System.out.println(intArray.length);
+      }
+
+
+     /**
+       Remove the element at position @index in this list.
+
+       Shift any subsequent elements to the left (that is,
+       decrease the index associated with each).
+
+       @return the value that was removed from the list
+      */
+      public int remove( int index) {
+          for (int currentIndex = index; currentIndex < filledElements; currentIndex++) {
+              intArray[currentIndex] = intArray[currentIndex + 1];
+          }
+          filledElements--;
+          return 0;
+      }
 }
