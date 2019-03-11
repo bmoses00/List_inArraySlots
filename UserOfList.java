@@ -80,6 +80,15 @@ public class UserOfList {
         System.out.println(
             "expecting:" + System.lineSeparator()
           + "[29,0,23,23,23,19, NO -1 HERE! -2,-3...]");
+		  
+		 List_inArraySlots list1 = new List_inArraySlots();
+		for( int i = 0; i < 10; i++ ) {
+            list1.add( -i); // differs from index, but similar
+            System.out.println( "number of elements: " + list1.size() );
+        }
+		System.out.println("removing value " + list1.remove( 3)
+                          + ", leaving " + list1.size() + " elements:");
+        System.out.println( list1);	 
 
     }
 

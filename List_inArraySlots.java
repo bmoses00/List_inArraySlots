@@ -117,10 +117,12 @@ public class List_inArraySlots {
        @return the value that was removed from the list
       */
       public int remove( int index) {
-          for (int currentIndex = index; currentIndex < filledElements; currentIndex++) {
+		  int removedValue = intArray[index];
+		  int currentIndex = index;
+          for (; currentIndex < filledElements - 1; currentIndex++) 
               intArray[currentIndex] = intArray[currentIndex + 1];
-          }
+		  intArray[currentIndex] = 0;
           filledElements--;
-          return 0;
-      }
+          return removedValue;
+      } 
 }
