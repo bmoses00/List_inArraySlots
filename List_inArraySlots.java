@@ -117,7 +117,7 @@ public class List_inArraySlots {
        @return the value that was removed from the list
       */
       public int remove( int index) {
-		  int removedValue = intArray[index];
+		  int removedValue = intArray[index]; // for some reason indent appears off on git hub
 		  int currentIndex = index;
           for (; currentIndex < filledElements - 1; currentIndex++) 
               intArray[currentIndex] = intArray[currentIndex + 1];
