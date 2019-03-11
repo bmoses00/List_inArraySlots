@@ -3,7 +3,7 @@
 ### Fields, constructors, and methods
 - Fields
   - private int[] intArray
-  - private int filledElements;
+  - private int filledElements
 - Constructors
   - public List_inArraySlots()
 - Methods
