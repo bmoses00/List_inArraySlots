@@ -39,6 +39,9 @@ public class UserOfList {
         System.out.println("after second expansion: " + list.size() + " elements:");
         System.out.println( list + System.lineSeparator());
 
+        list.addAsHead(5);
+        System.out.println("Added 5 as head: " + list.size() + " elements:");
+        System.out.println( list + System.lineSeparator());
 
 
         // ---------- END OF CODE THAT WORKED IN v0 ---------- //
@@ -80,7 +83,7 @@ public class UserOfList {
         System.out.println(
             "expecting:" + System.lineSeparator()
           + "[29,0,23,23,23,19, NO -1 HERE! -2,-3...]");
-		  
+
 		 List_inArraySlots list1 = new List_inArraySlots();
 		for( int i = 0; i < 10; i++ ) {
             list1.add( -i); // differs from index, but similar
@@ -88,7 +91,7 @@ public class UserOfList {
         }
 		System.out.println("removing value " + list1.remove( 3)
                           + ", leaving " + list1.size() + " elements:");
-        System.out.println( list1);	 
+        System.out.println( list1);
 
     }
 
